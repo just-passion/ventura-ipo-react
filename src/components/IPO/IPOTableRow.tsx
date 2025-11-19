@@ -1,13 +1,17 @@
 import TableRow from "../Table/TableRow";
 import type { IPO } from "../../types/ipoTypes";
 import { formatDateShort } from "../../utils/dateUtils";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   ipo: IPO;
   onClick: () => void;
 }
 
-const IPOTableRow = ({ ipo, onClick }: Props) => {
+const IPOTableRow = ({ ipo }: Props) => {
+
+  const navigate = useNavigate();
+
   const columns = [
     {
       key: "company",
@@ -49,7 +53,8 @@ const IPOTableRow = ({ ipo, onClick }: Props) => {
 
   ];
 
-  return <TableRow columns={columns} onClick={onClick} />;
+  return <TableRow columns={columns} onClick={() => navigate(`/ipo/${ipo.id}`)}
+ />;
 };
 
 export default IPOTableRow;

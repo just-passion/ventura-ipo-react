@@ -5,13 +5,16 @@ import IPOTableRow from "../components/IPO/IPOTableRow";
 import Container from "../components/Layout/Container";
 import TableHeader from "../components/Table/TableHeader";
 import type { IPO } from "../types/ipoTypes";
+import { useNavigate } from "react-router-dom";
 
 interface IPOListPageProps {
   ipoList: IPO[];
-  onSelectIPO: (ipo: IPO) => void;
 }
 
-const IPOListPage = ({ ipoList, onSelectIPO }: IPOListPageProps) => {
+const IPOListPage = ({ ipoList }: IPOListPageProps) => {
+  
+  const navigate = useNavigate();
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
@@ -36,7 +39,7 @@ const IPOListPage = ({ ipoList, onSelectIPO }: IPOListPageProps) => {
                 ]} />
 
               <tbody>
-                {ipoList.map((ipo) => ( <IPOTableRow key={ipo.id} ipo={ipo} onClick={() => onSelectIPO(ipo)} /> ))}
+                {ipoList.map((ipo) => ( <IPOTableRow key={ipo.id} ipo={ipo} onClick={() => navigate(`/ipo/${ipo.id}`)} /> ))}
               </tbody>
             </table>
           </div>
@@ -47,7 +50,7 @@ const IPOListPage = ({ ipoList, onSelectIPO }: IPOListPageProps) => {
       <div className="md:hidden">
         <Container>
           <div className="space-y-4">
-            {ipoList.map((ipo) => ( <IPOMobileCard key={ipo.id} ipo={ipo} onClick={() => onSelectIPO(ipo)} /> ))}
+            {ipoList.map((ipo) => ( <IPOMobileCard key={ipo.id} ipo={ipo} onClick={() => navigate(`/ipo/${ipo.id}`)} /> ))}
           </div>
         </Container>
       </div>

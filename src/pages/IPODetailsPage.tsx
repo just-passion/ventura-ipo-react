@@ -14,6 +14,7 @@ interface IPODetailsPageProps {
 }
 
 const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
+  
   const [showApplyModal, setShowApplyModal] = useState(false);
   const [downloadLabel, setDownloadLabel] = useState("Download");
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
