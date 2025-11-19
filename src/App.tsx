@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { MOCK_IPO_DATA } from "./data/ipoData";
-
 import IPOListPage from "./pages/IPOListPage";
 import IPODetailsPage from "./pages/IPODetailsPage";
 import type { IPO } from "./types/ipoTypes";

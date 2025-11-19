@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { ChevronLeft, Download, ExternalLink, Home } from "lucide-react";
-
 import Breadcrumb from "../components/Breadcrumb/Breadcrumb";
 import HorizontalTimeline from "../components/IPO/HorizontalTimeline";
 import VerticalTimeline from "../components/IPO/VerticalTimeline";
 import ApplyModal from "../components/Modal/ApplyModal";
 import Container from "../components/Layout/Container";
-
 import { formatDate } from "../utils/dateUtils";
 import type { IPO } from "../types/ipoTypes";
 
@@ -20,42 +18,36 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
   const [downloadLabel, setDownloadLabel] = useState("Download");
   const [isAboutExpanded, setIsAboutExpanded] = useState(false);
 
-  /* ------------------- DOWNLOAD HANDLER ------------------- */
   const handleDownload = () => {
     setDownloadLabel("Downloading...");
 
-    const content = `IPO Details - ${ipo.companyName}
-
-    Issue Size: ${ipo.issueSize}
-    Price Range: ${ipo.priceRange}
-    Min Investment: ${ipo.minInvestment}
-    Lot Size: ${ipo.lotSize}
-    Issue Date: ${formatDate(ipo.issueDate)}
-    Close Date: ${formatDate(ipo.closeDate)}
-    Listing Date: ${formatDate(ipo.listingDate)}
-    Listed Price: ${ipo.listedPrice ?? "-"}
-    Listing Gains: ${ipo.listedGainAmount ? "₹" + ipo.listedGainAmount : "-"} (${
-    ipo.listedGainPercent ?? "-"
-  }%)
-    `;
+    const content = 
+    `IPO Details - ${ipo.companyName}
+      Issue Size: ${ipo.issueSize}
+      Price Range: ${ipo.priceRange}
+      Min Investment: ${ipo.minInvestment}
+      Lot Size: ${ipo.lotSize}
+      Issue Date: ${formatDate(ipo.issueDate)}
+      Close Date: ${formatDate(ipo.closeDate)}
+      Listing Date: ${formatDate(ipo.listingDate)}
+      Listed Price: ${ipo.listedPrice ?? "-"}
+      Listing Gains: ${ipo.listedGainAmount ? "₹" + ipo.listedGainAmount : "-"} (${
+      ipo.listedGainPercent ?? "-"}%)`;
 
     setTimeout(() => {
       const blob = new Blob([content], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
-
       const a = document.createElement("a");
       a.href = url;
       a.download = `${ipo.companyName}_IPO_Details.txt`;
       a.click();
       URL.revokeObjectURL(url);
-
       setDownloadLabel("Downloaded!");
       setTimeout(() => setDownloadLabel("Download"), 1500);
     }, 600);
   };
 
-  /* ------------------- DETAIL ITEMS ------------------- */
-  const desktopDetailItems: DetailItemConfig[] = [
+  const desktopIpoDetailItems: DetailItemConfig[] = [
     { label: "Issue size", value: ipo.issueSize },
     { label: "Price range", value: ipo.priceRange },
     { label: "Minimum amount", value: ipo.minInvestment },
@@ -68,36 +60,23 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
     { label: "Listed price", value: ipo.listedPrice ?? "-" },
     {
       label: "Listing gains",
-      value: `${ipo.listedGainAmount ? "₹" + ipo.listedGainAmount : "-"} (${
-        ipo.listedGainPercent ?? "-"
-      }%)`,
+      value: `${ipo.listedGainAmount ? "₹" + ipo.listedGainAmount : "-"} (${ ipo.listedGainPercent ?? "-" }%)`,
       highlight: true,
     }
   ];
 
-  // PDF shows only first 5 on Mobile
-  const mobileDetailItems = desktopDetailItems.slice(0, 5);
-
-  /* ------------------- ABOUT TEXT ------------------- */
+  const mobileDetailItems = desktopIpoDetailItems.slice(0, 5);
   const ABOUT_LIMIT = 160;
   const showToggle = ipo.about.length > ABOUT_LIMIT;
-
-  const mobileAboutText =
-    isAboutExpanded || !showToggle
-      ? ipo.about
-      : `${ipo.about.slice(0, ABOUT_LIMIT)}...`;
+  const mobileAboutText = isAboutExpanded || !showToggle ? ipo.about : `${ipo.about.slice(0, ABOUT_LIMIT)}...`;
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {showApplyModal && (
-        <ApplyModal ipo={ipo} onClose={() => setShowApplyModal(false)} />
-      )}
+      {showApplyModal && (<ApplyModal ipo={ipo} onClose={() => setShowApplyModal(false)} />)}
 
       {/* ------------------- HEADER ------------------- */}
       <div className="bg-white border-b border-gray-200">
         <Container>
-
-          {/* Breadcrumb (desktop only) */}
           <Breadcrumb
             items={[
               { label: "Home", icon: Home, onClick: onBack },
@@ -105,30 +84,18 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
             ]}
           />
 
-          {/* Mobile Back Button (new) */}
           <button
             onClick={onBack}
-            className="md:hidden flex items-center gap-1 text-gray-600 text-sm mb-3"
-          >
+            className="md:hidden flex items-center gap-1 text-gray-600 text-sm mb-3">
             <ChevronLeft className="w-4 h-4" />
             Back
           </button>
 
-          {/* Desktop Header Layout */}
           <div className="mt-1 px-1 py-3 flex items-center justify-between">
-
-            {/* Left section (Logo + Names + Back on desktop) */}
             <div className="flex items-center gap-3">
-
-              {/* Desktop Back Button */}
-              <button
-                onClick={onBack}
-                className="hidden md:flex w-9 h-9 rounded-full border flex items-center justify-center hover:bg-gray-100"
-              >
-                <ChevronLeft className="w-4 h-4" />
+              <button onClick={onBack} className="hidden md:flex w-9 h-9 rounded-full border flex items-center justify-center hover:bg-gray-100" ><ChevronLeft className="w-4 h-4" />
               </button>
 
-              {/* Logo + Name */}
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-xl">
                   {ipo.logo}
@@ -142,6 +109,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
                   </p>
                 </div>
               </div>
+
             </div>
 
             {/* Desktop Buttons */}
@@ -167,7 +135,6 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
         </Container>
       </div>
 
-
       {/* ------------------- MAIN CONTENT ------------------- */}
       <Container>
         <div className="space-y-6">
@@ -176,18 +143,8 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
           <SectionCard title="IPO details">
             <div className="rounded-xl border p-4 sm:p-6">
 
-              <div
-                className="
-                  grid 
-                  grid-cols-1 
-                  sm:grid-cols-2 
-                  md:grid-cols-3 
-                  lg:grid-cols-4 
-                  gap-6
-                "
-              >
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {(
-                  /* Use mobile list or desktop list automatically */
                   <div className="contents md:hidden">
                     {mobileDetailItems.map((i) => (
                       <DetailItem key={i.label} {...i} />
@@ -196,7 +153,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
                 )}
 
                 <div className="hidden md:contents">
-                  {desktopDetailItems.map((i) => (
+                  {desktopIpoDetailItems.map((i) => (
                     <DetailItem key={i.label} {...i} />
                   ))}
                 </div>
@@ -266,8 +223,6 @@ const DetailItem = ({ label, value }: DetailItemConfig) => {
     </div>
   );
 };
-
-
 
 const SectionCard = ({
   title,

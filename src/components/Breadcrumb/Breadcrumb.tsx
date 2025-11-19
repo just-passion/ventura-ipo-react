@@ -34,7 +34,6 @@ const Breadcrumb = ({ items }: BreadcrumbProps) => {
               </span>
             )}
 
-            {/* Replace "/" with ">" */}
             {!isLast && <span className="mx-2 text-gray-400">{">"}</span>}
           </div>
         );

@@ -24,7 +24,7 @@ export interface IPO {
   logo: string;
   about: string;
   companyDetails: CompanyDetails;
-  listedPrice?: string;    // NEW: e.g. "₹150"
-  listedGainAmount: number;   // ₹ amount
-  listedGainPercent: number;  // percentage
+  listedPrice?: string;   
+  listedGainAmount: number;  
+  listedGainPercent: number; 
 }

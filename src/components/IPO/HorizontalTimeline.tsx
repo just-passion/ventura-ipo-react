@@ -1,4 +1,4 @@
-import { Check, CheckCircle2 } from "lucide-react";
+import { Check } from "lucide-react";
 import { formatDateShort } from "../../utils/dateUtils";
 import type { IPO } from "../../types/ipoTypes";
 
@@ -75,7 +75,6 @@ const HorizontalTimeline = ({ ipo }: HorizontalTimelineProps) => {
                 )}
               </div>
 
-              {/* Label + Date */}
               <div className="mt-3 text-center">
                 <p className="text-sm font-medium text-gray-900">{step.label}</p>
                 <p className="text-xs text-gray-500 mt-1">{step.date}</p>
