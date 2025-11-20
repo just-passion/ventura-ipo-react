@@ -1,0 +1,27 @@
+{
+  "id": 1,
+  "companyName": "GO Digit General Insurance",
+  "issueSize": "₹2,614 Cr",
+  "priceRange": "₹276 - ₹290",
+  "minInvestment": "₹14,500",
+  "lotSize": 50,
+  "issueDate": "2024-05-15",
+  "closeDate": "2024-05-17",
+  "listingDate": "2024-05-23",
+  "basisOfAllotment": "2024-05-20",
+  "listedPrice": "₹295",
+  "listedGainAmount": 5,
+  "listedGainPercent": 1.7,
+  "status": "Open",
+  "subscriptionRate": "2.34x",
+  "logo": "🛡️",
+  "about": "GO Digit General Insurance is one of India's fastest-growing general insurance companies, offering motor, health, travel and property insurance.",
+  "companyDetails": {
+    "issueSize": "₹2,614 Cr",
+    "priceRange": "₹276 - ₹290",
+    "minInvestment": "₹14,500",
+    "lotSize": "50 shares/lot",
+    "issueDate": "May 15, 2024",
+    "listingDate": "May 23, 2024"
+  }
+}

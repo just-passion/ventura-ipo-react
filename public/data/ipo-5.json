@@ -1,0 +1,27 @@
+{
+  "id": 5,
+  "companyName": "Hyundai Motor India",
+  "issueSize": "₹27,870 Cr",
+  "priceRange": "₹1,865 - ₹1,960",
+  "minInvestment": "₹15,680",
+  "lotSize": 8,
+  "issueDate": "2024-10-15",
+  "closeDate": "2024-10-17",
+  "listingDate": "2024-10-22",
+  "basisOfAllotment": "2024-10-19",
+  "listedPrice": "₹2,020",
+  "listedGainAmount": 60,
+  "listedGainPercent": 3.0,
+  "status": "Listed",
+  "subscriptionRate": "2.37x",
+  "logo": "🚗",
+  "about": "Hyundai Motor India is the country's second-largest automobile manufacturer, offering a wide range of passenger vehicles with advanced design, reliability, and innovative technology.",
+  "companyDetails": {
+    "issueSize": "₹27,870 Cr",
+    "priceRange": "₹1,865 - ₹1,960",
+    "minInvestment": "₹15,680",
+    "lotSize": "8 shares/lot",
+    "issueDate": "Oct 15, 2024",
+    "listingDate": "Oct 22, 2024"
+  }
+}

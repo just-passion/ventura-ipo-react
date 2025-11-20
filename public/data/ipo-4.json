@@ -1,0 +1,27 @@
+{
+  "id": 4,
+  "companyName": "Swiggy",
+  "issueSize": "₹11,327 Cr",
+  "priceRange": "₹371 - ₹390",
+  "minInvestment": "₹15,210",
+  "lotSize": 39,
+  "issueDate": "2024-11-06",
+  "closeDate": "2024-11-08",
+  "listingDate": "2024-11-13",
+  "basisOfAllotment": "2024-11-11",
+  "listedPrice": "₹415",
+  "listedGainAmount": 25,
+  "listedGainPercent": 6.4,
+  "status": "Listed",
+  "subscriptionRate": "3.59x",
+  "logo": "🍔",
+  "about": "Swiggy is India's leading food delivery and quick-commerce platform, offering food delivery, grocery delivery (Instamart), and convenience services across major cities.",
+  "companyDetails": {
+    "issueSize": "₹11,327 Cr",
+    "priceRange": "₹371 - ₹390",
+    "minInvestment": "₹15,210",
+    "lotSize": "39 shares/lot",
+    "issueDate": "Nov 06, 2024",
+    "listingDate": "Nov 13, 2024"
+  }
+}

@@ -171,13 +171,16 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
             <VerticalTimeline ipo={ipo} />
           </SectionCard>
 
-          {/* ------------- ABOUT COMPANY ------------- */}
-          <SectionCard title="About the company">
-            <p className="hidden md:block text-sm md:text-base text-gray-600 leading-relaxed">
+          {/* ------------- ABOUT COMPANY (DESKTOP) ------------- */}
+          <SectionCard title="About the company" className="hidden md:block">
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
               {ipo.about}
             </p>
+          </SectionCard>
 
-            <p className="md:hidden text-sm text-gray-600 leading-snug">
+          {/* ------------- ABOUT COMPANY (MOBILE → CUSTOM HEADING) ------------- */}
+          <SectionCard title={ipo.companyFullName || ipo.companyName} className="md:hidden">
+            <p className="text-sm text-gray-600 leading-snug">
               {mobileAboutText}
               {showToggle && (
                 <button

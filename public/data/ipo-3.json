@@ -1,0 +1,27 @@
+{
+  "id": 3,
+  "companyName": "Bajaj Housing Finance",
+  "issueSize": "₹6,560 Cr",
+  "priceRange": "₹66 - ₹70",
+  "minInvestment": "₹13,860",
+  "lotSize": 214,
+  "issueDate": "2024-09-09",
+  "closeDate": "2024-09-11",
+  "listingDate": "2024-09-16",
+  "basisOfAllotment": "2024-09-13",
+  "listedPrice": "₹73",
+  "listedGainAmount": 3,
+  "listedGainPercent": 4.3,
+  "status": "Listed",
+  "subscriptionRate": "65.60x",
+  "logo": "🏠",
+  "about": "Bajaj Housing Finance Limited, a subsidiary of Bajaj Finance, provides home loans, loan against property, and other housing-related financing services across India.",
+  "companyDetails": {
+    "issueSize": "₹6,560 Cr",
+    "priceRange": "₹66 - ₹70",
+    "minInvestment": "₹13,860",
+    "lotSize": "214 shares/lot",
+    "issueDate": "Sep 09, 2024",
+    "listingDate": "Sep 16, 2024"
+  }
+}

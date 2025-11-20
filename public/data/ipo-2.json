@@ -1,0 +1,27 @@
+{
+  "id": 2,
+  "companyName": "Ola Electric",
+  "issueSize": "₹5,500 Cr",
+  "priceRange": "₹72 - ₹76",
+  "minInvestment": "₹14,820",
+  "lotSize": 195,
+  "issueDate": "2024-08-02",
+  "closeDate": "2024-08-06",
+  "listingDate": "2024-08-09",
+  "basisOfAllotment": "2024-08-07",
+  "listedPrice": "₹83",
+  "listedGainAmount": 7,
+  "listedGainPercent": 9.2,
+  "status": "Closed",
+  "subscriptionRate": "4.27x",
+  "logo": "⚡",
+  "about": "Ola Electric is India's largest electric vehicle manufacturer, known for its electric scooters and its mission to accelerate the transition to sustainable mobility across the nation.",
+  "companyDetails": {
+    "issueSize": "₹5,500 Cr",
+    "priceRange": "₹72 - ₹76",
+    "minInvestment": "₹14,820",
+    "lotSize": "195 shares/lot",
+    "issueDate": "Aug 02, 2024",
+    "listingDate": "Aug 09, 2024"
+  }
+}
