@@ -7,6 +7,9 @@ import ApplyModal from "../components/Modal/ApplyModal";
 import Container from "../components/Layout/Container";
 import { formatDate } from "../utils/dateUtils";
 import type { IPO } from "../types/ipoTypes";
+import { ABOUT_TEXT_LIMIT } from "../constants/config";
+import { DOWNLOAD_FILE_SUFFIX } from "../constants/messages";
+import { LABELS } from "../constants/labels";
 
 interface IPODetailsPageProps {
   ipo: IPO;
@@ -40,7 +43,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `${ipo.companyName}_IPO_Details.txt`;
+      a.download = ipo.companyName + DOWNLOAD_FILE_SUFFIX;
       a.click();
       URL.revokeObjectURL(url);
       setDownloadLabel("Downloaded!");
@@ -67,7 +70,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
   ];
 
   const mobileDetailItems = desktopIpoDetailItems.slice(0, 5);
-  const ABOUT_LIMIT = 160;
+  const ABOUT_LIMIT = ABOUT_TEXT_LIMIT;
   const showToggle = ipo.about.length > ABOUT_LIMIT;
   const mobileAboutText = isAboutExpanded || !showToggle ? ipo.about : `${ipo.about.slice(0, ABOUT_LIMIT)}...`;
 
@@ -80,7 +83,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
         <Container>
           <Breadcrumb
             items={[
-              { label: "Home", icon: Home, onClick: onBack },
+              { label: LABELS.HOME, icon: Home, onClick: onBack },
               { label: ipo.companyName },
             ]}
           />
@@ -89,7 +92,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
             onClick={onBack}
             className="md:hidden flex items-center gap-1 text-gray-600 text-sm mb-3">
             <ChevronLeft className="w-4 h-4" />
-            Back
+            {LABELS.BACK}
           </button>
 
           <div className="mt-1 px-1 py-3 flex items-center justify-between">
@@ -141,7 +144,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
         <div className="space-y-6">
 
           {/* ------------- IPO DETAILS CARD ------------- */}
-          <SectionCard title="IPO details">
+          <SectionCard title={LABELS.IPO_DETAILS}>
             <div className="rounded-xl border p-4 sm:p-6">
 
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -163,11 +166,11 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
           </SectionCard>
 
           {/* ------------- TIMELINE ------------- */}
-          <SectionCard title="IPO timeline" className="hidden md:block">
+          <SectionCard title={LABELS.IPO_TIMELINE} className="hidden md:block">
             <HorizontalTimeline ipo={ipo} />
           </SectionCard>
 
-          <SectionCard title="IPO timeline" className="md:hidden">
+          <SectionCard title={LABELS.IPO_TIMELINE} className="md:hidden">
             <VerticalTimeline ipo={ipo} />
           </SectionCard>
 
@@ -178,7 +181,7 @@ const IPODetailsPage = ({ ipo, onBack }: IPODetailsPageProps) => {
             </p>
           </SectionCard>
 
-          {/* ------------- ABOUT COMPANY (MOBILE → CUSTOM HEADING) ------------- */}
+          {/* ------------- ABOUT COMPANY (MOBILE) ------------- */}
           <SectionCard title={ipo.companyFullName || ipo.companyName} className="md:hidden">
             <p className="text-sm text-gray-600 leading-snug">
               {mobileAboutText}

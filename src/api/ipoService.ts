@@ -1,16 +1,17 @@
+import { API } from "../constants/api";
 import type { IPO } from "../types/ipoTypes";
 import { fetchClient } from "./fetchClient";
 
 export const getAllIPOs = () => {
-  return fetchClient<IPO[]>("/data/ipos.json");
+  return fetchClient<IPO[]>(API.IPO_LIST);
 };
 
 export const getIPODetails = (id: string) => {
-  return fetchClient<IPO>(`/data/ipo-${id}.json`);
+  return fetchClient<IPO>(API.IPO_DETAILS(id));
 };
 
 export const searchIpos = async (query: string) => {
-  const all = await fetchClient<IPO[]>("/data/ipos.json");
+  const all = await fetchClient<IPO[]>(API.IPO_LIST);
   if (!query.trim()) return all;
 
   const lower = query.toLowerCase();

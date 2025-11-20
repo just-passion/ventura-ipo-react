@@ -1,22 +1,18 @@
-import { useState } from "react";
-import { MOCK_IPO_DATA } from "./data/ipoData";
-import IPOListPage from "./pages/IPOListPage";
-import IPODetailsPage from "./pages/IPODetailsPage";
-import type { IPO } from "./types/ipoTypes";
 import { Route, Routes } from "react-router-dom";
 import IPODetailsPageWrapper from "./pages/IPODetailsPageWrapper";
+import IPOListPage from "./pages/IPOListPage";
 
 const App = () => {
 
   return (
     <Routes>
       {/* List page */}
-      <Route path="/" element={<IPOListPage ipoList={MOCK_IPO_DATA} />} />
+      <Route path="/" element={<IPOListPage />} />
 
       {/* Details page */}
       <Route 
       path="/ipo/:id" 
-      element={<IPODetailsPageWrapper ipoList={MOCK_IPO_DATA} />} 
+      element={<IPODetailsPageWrapper />} 
     />
     </Routes>
   );

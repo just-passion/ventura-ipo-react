@@ -6,8 +6,8 @@ import IPOTableRow from "../components/IPO/IPOTableRow";
 import Container from "../components/Layout/Container";
 import TableHeader from "../components/Table/TableHeader";
 
-import SkeletonIPOListDesktop from "../components/skeleton/SkeletonIPOListDesktop";
-import SkeletonIPOListMobile from "../components/skeleton/SkeletonIPOListMobile";
+import SkeletonIPOListDesktop from "../components/Skeleton/SkeletonIPOListDesktop";
+import SkeletonIPOListMobile from "../components/Skeleton/SkeletonIPOListMobile";
 
 import SearchBar from "../components/Search/SearchBar";
 
@@ -16,6 +16,7 @@ import { useDebounce } from "../hooks/useDebounce";
 
 import { getAllIPOs, searchIpos } from "../api/ipoService";
 import type { IPO } from "../types/ipoTypes";
+import { SEARCH_DEBOUNCE_DELAY } from "../constants/config";
 
 const IPOListPage = () => {
   const navigate = useNavigate();
@@ -25,11 +26,8 @@ const IPOListPage = () => {
   const [error, setError] = useState<string | null>(null);
 
   const [search, setSearch] = useState("");
-  const debouncedSearch = useDebounce(search, 500);
-
-  // ---------------------------
-  // 1️⃣ Initial load
-  // ---------------------------
+  const debouncedSearch = useDebounce(search, SEARCH_DEBOUNCE_DELAY);
+  
   useEffect(() => {
     if (debouncedSearch.trim().length > 0) return;
 
@@ -40,9 +38,6 @@ const IPOListPage = () => {
       .finally(() => setLoading(false));
   }, [debouncedSearch]);
 
-  // ---------------------------
-  // 2️⃣ Search logic
-  // ---------------------------
   useEffect(() => {
     if (debouncedSearch.trim().length === 0) return;
 

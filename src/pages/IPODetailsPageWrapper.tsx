@@ -4,7 +4,7 @@ import type { IPO } from "../types/ipoTypes";
 import { useFetch } from "../hooks/useFetch";
 import { getIPODetails } from "../api/ipoService";
 import ErrorBox from "../components/UI/ErrorBox";
-import SkeletonIPODetails from "../components/skeleton/SkeletonIPODetails";
+import SkeletonIPODetails from "../components/Skeleton/SkeletonIPODetails";
 
 const IPODetailsPageWrapper = () => {
   const { id } = useParams();
